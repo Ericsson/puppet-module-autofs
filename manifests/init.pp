@@ -114,7 +114,6 @@ class autofs (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => Package['autofs'],
   }
 
   concat::fragment { 'auto.master_head':
