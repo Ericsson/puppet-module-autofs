@@ -40,12 +40,11 @@ jobs:
 
   unit:
     needs: setup_matrix
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
     timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
         include: ${{fromJson(needs.setup_matrix.outputs.puppet_unit_test_matrix)}}
     name: Spec Puppet ${{ matrix.puppet }} (Ruby ${{ matrix.ruby }}, OS ${{ matrix.os }})
     steps:
