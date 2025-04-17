@@ -10,7 +10,7 @@ concurrency:
 jobs:
   setup_matrix:
     name: Setup Test Matrix
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 40
     outputs:
       puppet_unit_test_matrix: ${{ steps.get-outputs.outputs.puppet_unit_test_matrix }}
@@ -24,25 +24,30 @@ jobs:
           ruby-version: '2.7.3'
           bundler-cache: true
 
-      - name: Run static validations
-        run: bundle exec rake validate lint
+
+      - name: Run Puppet Syntax Check
+        run: bundle exec rake syntax
+
+      - name: Run Puppet Lint
+        run: bundle exec rake lint
 
       - name: Run rake rubocop
         run: bundle exec rake rubocop
 
       - name: Setup Test Matrix
         id: get-outputs
-        run: bundle exec metadata2gha --use-fqdn --pidfile-workaround false
+        run: bundle exec metadata2gha --pidfile-workaround false
 
   unit:
     needs: setup_matrix
-    runs-on: ubuntu-20.04
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
         include: ${{fromJson(needs.setup_matrix.outputs.puppet_unit_test_matrix)}}
-    name: Spec Puppet ${{ matrix.puppet }} (Ruby ${{ matrix.ruby }})
+    name: Spec Puppet ${{ matrix.puppet }} (Ruby ${{ matrix.ruby }}, OS ${{ matrix.os }})
     steps:
       - uses: actions/checkout@v3
 
@@ -58,7 +63,7 @@ jobs:
 # TODO: active when acceptance tests have been added
 #  acceptance:
 #    name: Litmus Acceptance
-#    runs-on: ubuntu-20.04
+#    runs-on: ubuntu-latest
 #    env:
 #      BOLT_GEM: true
 #      CI: true
@@ -86,7 +91,7 @@ jobs:
       - unit
 # TODO: active when acceptance tests have been added
 #      - acceptance
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Test suite
     steps:
       - run: echo Test suite completed
