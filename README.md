@@ -12,19 +12,10 @@ This module has been tested to work on the following systems with the latest
 Puppet v3, v3 with future parser, v4, v5 and v6. See `.travis.yml` for the
 exact matrix of supported Puppet and ruby versions.
 
-* EL 5
-* EL 6
-* EL 7
 * EL 8
 * EL 9
-* SLED / SLES 10
-* SLED / SLES 11
 * SLED / SLES 12
 * SLED / SLES 15
-* Ubuntu 12.04 LTS
-* Ubuntu 14.04 LTS
-* Ubuntu 16.04 LTS
-* Ubuntu 18.04 LTS
 * Ubuntu 20.04 LTS
 * Ubuntu 22.04 LTS
 
