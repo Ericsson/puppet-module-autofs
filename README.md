@@ -3,8 +3,6 @@ puppet-module-autofs
 
 Puppet module to manage autofs. Documentation TBD.
 
-[![Build Status](https://api.travis-ci.org/kodguru/puppet-module-autofs.png)](https://travis-ci.org/kodguru/puppet-module-autofs)
-
 
 # Compatibility
 ---------------
