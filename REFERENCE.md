@@ -10,7 +10,7 @@
 
 ### Defined types
 
-* [`autofs::map`](#autofsmap): Manage autofs maps
+* [`autofs::map`](#autofs--map): Manage autofs maps
 
 ## Classes
 
@@ -22,26 +22,26 @@ Manage autofs
 
 The following parameters are available in the `autofs` class:
 
-* [`browse_mode`](#browse_mode)
-* [`timeout`](#timeout)
-* [`negative_timeout`](#negative_timeout)
-* [`mount_wait`](#mount_wait)
-* [`umount_wait`](#umount_wait)
-* [`mount_nfs_default_protocol`](#mount_nfs_default_protocol)
-* [`append_options`](#append_options)
-* [`logging`](#logging)
-* [`maps`](#maps)
-* [`autofs_package`](#autofs_package)
-* [`autofs_sysconfig`](#autofs_sysconfig)
-* [`autofs_service`](#autofs_service)
-* [`autofs_auto_master`](#autofs_auto_master)
-* [`use_nis_maps`](#use_nis_maps)
-* [`use_dash_hosts_for_net`](#use_dash_hosts_for_net)
-* [`nis_master_name`](#nis_master_name)
-* [`service_ensure`](#service_ensure)
-* [`service_enable`](#service_enable)
+* [`browse_mode`](#-autofs--browse_mode)
+* [`timeout`](#-autofs--timeout)
+* [`negative_timeout`](#-autofs--negative_timeout)
+* [`mount_wait`](#-autofs--mount_wait)
+* [`umount_wait`](#-autofs--umount_wait)
+* [`mount_nfs_default_protocol`](#-autofs--mount_nfs_default_protocol)
+* [`append_options`](#-autofs--append_options)
+* [`logging`](#-autofs--logging)
+* [`maps`](#-autofs--maps)
+* [`autofs_package`](#-autofs--autofs_package)
+* [`autofs_sysconfig`](#-autofs--autofs_sysconfig)
+* [`autofs_service`](#-autofs--autofs_service)
+* [`autofs_auto_master`](#-autofs--autofs_auto_master)
+* [`use_nis_maps`](#-autofs--use_nis_maps)
+* [`use_dash_hosts_for_net`](#-autofs--use_dash_hosts_for_net)
+* [`nis_master_name`](#-autofs--nis_master_name)
+* [`service_ensure`](#-autofs--service_ensure)
+* [`service_enable`](#-autofs--service_enable)
 
-##### <a name="browse_mode"></a>`browse_mode`
+##### <a name="-autofs--browse_mode"></a>`browse_mode`
 
 Data type: `Enum['YES', 'NO']`
 
@@ -49,7 +49,7 @@ Set this to `YES` if you want your mounts to be browseable.
 
 Default value: `'NO'`
 
-##### <a name="timeout"></a>`timeout`
+##### <a name="-autofs--timeout"></a>`timeout`
 
 Data type: `Integer[0]`
 
@@ -57,7 +57,7 @@ Default mount timeout.
 
 Default value: `600`
 
-##### <a name="negative_timeout"></a>`negative_timeout`
+##### <a name="-autofs--negative_timeout"></a>`negative_timeout`
 
 Data type: `Integer[0]`
 
@@ -65,15 +65,15 @@ Default negative timeout for failed mount attempts.
 
 Default value: `60`
 
-##### <a name="mount_wait"></a>`mount_wait`
+##### <a name="-autofs--mount_wait"></a>`mount_wait`
 
 Data type: `Integer`
 
 Time to wait for a response from mount.
 
-Default value: `-`
+Default value: `-1`
 
-##### <a name="umount_wait"></a>`umount_wait`
+##### <a name="-autofs--umount_wait"></a>`umount_wait`
 
 Data type: `Integer[0]`
 
@@ -81,7 +81,7 @@ Time to wait for a response from umount.
 
 Default value: `12`
 
-##### <a name="mount_nfs_default_protocol"></a>`mount_nfs_default_protocol`
+##### <a name="-autofs--mount_nfs_default_protocol"></a>`mount_nfs_default_protocol`
 
 Data type: `Integer[0]`
 
@@ -89,7 +89,7 @@ Default protocol version used by mount.nfs.
 
 Default value: `4`
 
-##### <a name="append_options"></a>`append_options`
+##### <a name="-autofs--append_options"></a>`append_options`
 
 Data type: `Enum['yes', 'no']`
 
@@ -97,7 +97,7 @@ Specify whether options should be appended to global options or replacing them.
 
 Default value: `'yes'`
 
-##### <a name="logging"></a>`logging`
+##### <a name="-autofs--logging"></a>`logging`
 
 Data type: `Enum['none', 'verbose', 'debug']`
 
@@ -105,7 +105,7 @@ Set default log level `none`, `verbose` or `debug`.
 
 Default value: `'none'`
 
-##### <a name="maps"></a>`maps`
+##### <a name="-autofs--maps"></a>`maps`
 
 Data type: `Hash`
 
@@ -113,7 +113,7 @@ Specify the maps managed. This value is sent to define `autofs::map`.
 
 Default value: `{}`
 
-##### <a name="autofs_package"></a>`autofs_package`
+##### <a name="-autofs--autofs_package"></a>`autofs_package`
 
 Data type: `String[1]`
 
@@ -121,7 +121,7 @@ Package name for autofs. Unset, this parameter will choose the appropriate defau
 
 Default value: `'autofs'`
 
-##### <a name="autofs_sysconfig"></a>`autofs_sysconfig`
+##### <a name="-autofs--autofs_sysconfig"></a>`autofs_sysconfig`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -129,7 +129,7 @@ Absolute path for autofs sysconfig location. Unset, this parameter will choose t
 
 Default value: `'/etc/sysconfig/autofs'`
 
-##### <a name="autofs_service"></a>`autofs_service`
+##### <a name="-autofs--autofs_service"></a>`autofs_service`
 
 Data type: `String[1]`
 
@@ -137,7 +137,7 @@ Service name for autofs to manage.
 
 Default value: `'autofs'`
 
-##### <a name="autofs_auto_master"></a>`autofs_auto_master`
+##### <a name="-autofs--autofs_auto_master"></a>`autofs_auto_master`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -145,23 +145,23 @@ Absolute path for autofs.master location. Unset, this parameter will choose the 
 
 Default value: `'/etc/auto.master'`
 
-##### <a name="use_nis_maps"></a>`use_nis_maps`
+##### <a name="-autofs--use_nis_maps"></a>`use_nis_maps`
 
 Data type: `Boolean`
 
 If the module should load mount maps from NIS.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="use_dash_hosts_for_net"></a>`use_dash_hosts_for_net`
+##### <a name="-autofs--use_dash_hosts_for_net"></a>`use_dash_hosts_for_net`
 
 Data type: `Boolean`
 
 Set this to true makes autofs use `-hosts` for the /net mountpoint. Set to false to use `/etc/auto.net`.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="nis_master_name"></a>`nis_master_name`
+##### <a name="-autofs--nis_master_name"></a>`nis_master_name`
 
 Data type: `String[1]`
 
@@ -169,7 +169,7 @@ The name of the NIS map containing the auto.master data.
 
 Default value: `'auto.master'`
 
-##### <a name="service_ensure"></a>`service_ensure`
+##### <a name="-autofs--service_ensure"></a>`service_ensure`
 
 Data type: `Stdlib::Ensure::Service`
 
@@ -177,17 +177,17 @@ Value for the service ensure attribute. Valid values are `running` and `stopped`
 
 Default value: `'running'`
 
-##### <a name="service_enable"></a>`service_enable`
+##### <a name="-autofs--service_enable"></a>`service_enable`
 
 Data type: `Boolean`
 
 Value for the service enable attribute.
 
-Default value: ``true``
+Default value: `true`
 
 ## Defined types
 
-### <a name="autofsmap"></a>`autofs::map`
+### <a name="autofs--map"></a>`autofs::map`
 
 Manage autofs maps
 
@@ -231,50 +231,50 @@ Result in auto.master:
 
 The following parameters are available in the `autofs::map` defined type:
 
-* [`mountpoint`](#mountpoint)
-* [`maptype`](#maptype)
-* [`mapname`](#mapname)
-* [`mappath`](#mappath)
-* [`mounts`](#mounts)
-* [`manage`](#manage)
-* [`manage_content`](#manage_content)
-* [`file`](#file)
-* [`options`](#options)
+* [`mountpoint`](#-autofs--map--mountpoint)
+* [`maptype`](#-autofs--map--maptype)
+* [`mapname`](#-autofs--map--mapname)
+* [`mappath`](#-autofs--map--mappath)
+* [`mounts`](#-autofs--map--mounts)
+* [`manage`](#-autofs--map--manage)
+* [`manage_content`](#-autofs--map--manage_content)
+* [`file`](#-autofs--map--file)
+* [`options`](#-autofs--map--options)
 
-##### <a name="mountpoint"></a>`mountpoint`
+##### <a name="-autofs--map--mountpoint"></a>`mountpoint`
 
 Data type: `Optional[String[1]]`
 
 Specify the mountpoint in `auto.master`.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="maptype"></a>`maptype`
+##### <a name="-autofs--map--maptype"></a>`maptype`
 
 Data type: `Optional[String[1]]`
 
 Specify maptype for mountpoint in `auto.master`
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="mapname"></a>`mapname`
+##### <a name="-autofs--map--mapname"></a>`mapname`
 
 Data type: `Optional[String[1]]`
 
 The name for the map in `auto.master`. The default of `undef` will use the name of the key used to specify the mount.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="mappath"></a>`mappath`
+##### <a name="-autofs--map--mappath"></a>`mappath`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
 Absolute path of the map file to be created and used in `auto.master`. The default of `undef` will use the name of the
 key used to specify the mount with `/etc/auto.` as prefix.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="mounts"></a>`mounts`
+##### <a name="-autofs--map--mounts"></a>`mounts`
 
 Data type: `Array`
 
@@ -282,35 +282,35 @@ Specify the mounts to be mounted at mountpoint as an array.
 
 Default value: `[]`
 
-##### <a name="manage"></a>`manage`
+##### <a name="-autofs--map--manage"></a>`manage`
 
 Data type: `Variant[String[1], Boolean]`
 
 Boolean to manage mounts in `auto.master`. Setting it to false will result in `-null` in `auto.master`.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="manage_content"></a>`manage_content`
+##### <a name="-autofs--map--manage_content"></a>`manage_content`
 
 Data type: `Boolean`
 
 Boolean to manage contents of map.
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="file"></a>`file`
+##### <a name="-autofs--map--file"></a>`file`
 
 Data type: `Optional[Stdlib::Filesource]`
 
 Specify the mounts to be mounted at mountpoint from a file.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="options"></a>`options`
+##### <a name="-autofs--map--options"></a>`options`
 
 Data type: `Optional[String[1]]`
 
 Specify extra mount points for this mountpoint in `auto.master`.
 
-Default value: ``undef``
+Default value: `undef`
 
